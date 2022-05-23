@@ -16,11 +16,50 @@
 
 const app = new Vue({
     el: '#app',
+    
     data:{
-      
-    },
-    methods:{
+        newTodo: '',
+        todos:[
+            {
+                text : 'fare la spesa',
+                isDone : false,
+            },
+            {
+                text : 'studia',
+                isDone : false,
+            },
+            {
+                text : 'appuntamento dentista',
+                isDone : false,
+            },
+        ]
+        
 
     },
+    methods:{
+        
+        addTodo(){
+            if( this.newTodo !== ''){
+                this.todos.push({text : this.newTodo, isDone : false});
+                console.log(this.todos);
+                this.newTodo = ''; 
+             }
+        },
+
+        barTodo(index){
+            if(this.todos[index].isDone === false){
+                this.todos[index].isDone = true;
+            } else {
+                this.todos[index].isDone = false;
+            }
+            console.log(this.todos[index].isDone);
+        },
+
+        removeTodo(index){
+            this.todos.splice(index,1);
+        }
+
+    },
+    
 
 })

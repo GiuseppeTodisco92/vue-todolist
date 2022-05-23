@@ -15,25 +15,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
-<body>
-    <div id="app" class="container">
+<body class="container">
+    <div id="app" >
         <header class="header_style">
             <h1>To do list</h1>
         </header>
 
         <main>
             <div class="new_todo">
-                <form >
-                    <input type="text" placeholder="inserisci un nuovo todo ">
-                    <button type="submit">aggiungi</button>
-                </form>
+                
+                    <input class="input_style" type="text" placeholder="inserisci un nuovo todo " @keyup.enter="addTodo()" v-model="newTodo">
+                    <button class="btn_custom" type="submit" @click="addTodo()" >aggiungi</button>
+               
                 
             </div>
 
             <div class="todos_box">
-                <ul>
-                    <li>text<div> <i class="fa-solid fa-check"></i> <i class="fa-solid fa-xmark"></i></div></li>
+                <ul v-if="todos.length > 0">
+                    <li v-for="(todo,index) in todos" :key="index" :class="{bar: todo.isDone}" >{{todo.text}}<span> <i @click="barTodo(index)" class="fa-solid fa-check checked"></i><i @click="removeTodo(index)" class="fa-solid fa-xmark cross"></i></span></li>
                 </ul>
+                <h2 v-else>Non sno presenti todo</h2>
             </div>
         </main>
         
