@@ -1,0 +1,41 @@
+/*---------------
+    RESET  
+-----------------*/
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.container{
+    width: 80%;
+    margin: auto;
+}
+
+
+/*---------------
+    HEADER 
+-----------------*/
+.header_style{
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.new_todo{
+    display: flex;
+    justify-content: center;
+}
+
+.todos_box{
+    border: 1px solid lightgray;
+    width: 50%;
+    min-height: 100px;
+    margin: auto;
+}
+
+.todos_box li{
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
